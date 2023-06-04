@@ -1,47 +1,40 @@
-  const btn = document.querySelector("button")
+let donutCount = 0
 
-// btn.addEventListener("click", function () {
-//   alert("You have begun Donut Clicker")
-// });
-
-var alerted = localStorage.getItem('alerted') || '';
-if (alerted != 'yes') {
- alert("You have begun Donut Clicker");
- localStorage.setItem('alerted','yes');
+function addToDonutCount(amountToAdd) {
+  donutCount = donutCount + amountToAdd
 }
 
-function onClick() {
-  clicks += 1
-  document.getElementById("donuts").innerHTML = clicks
+function getDonutCount() {
+  return donutCount
 }
 
-var clicks = 0
+// Auto Clicker
 
-
-
-
-
-
-
-
-
-
-
-
-/*
-const autoClicker = document.querySelector("donuts")
-for (let i = 0; i < clicks; i++) {
-let autoClicker = clicks
+let autoClickerCount = 0
+function getAutoClickerCount(){
+  return autoClickerCount 
 }
 
-document.getElementById("button").click();
-for ( let i = 0; ; i++ ) {
-document.getElementById("button").click();
+function addToAutoClickerCount(amountToAdd) {
+  if(donutCount >= autoClickerCost) {
+  autoClickerCount = autoClickerCount + amountToAdd
+  } 
 }
 
-setInterval(function CountUp(){
-counter++;
-document.getElementById(btn)
-innerText = counter
-})
-*/
+function subtractDonutCount(autoClickerPurchasePrice) {
+  donutCount = donutCount - autoClickerPurchasePrice;
+}
+
+const  increasePercentage  = 1.1;
+
+let autoClickerCost = 100;
+
+function increaseAutoClickerCost(){
+    autoClickerCost = autoClickerCost * increasePercentage
+    autoClickerCost = Math.round(autoClickerCost)
+}
+
+function countUp() {
+  donutCount = donutCount + autoClickerCount
+  }
+  setInterval(countUp, 1000)
