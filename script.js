@@ -1,12 +1,19 @@
+const btn=document.getElementById("button");
+const display=document.getElementById("donuts-count");
+
 let donutCount = 0
 
 function addToDonutCount(amountToAdd) {
   donutCount = donutCount + amountToAdd
+  display.innerText = donutCount
 }
 
 function getDonutCount() {
   return donutCount
 }
+
+btn.addEventListener("click", function()
+{addToDonutCount(1)})
 
 // Auto Clicker
 
@@ -54,3 +61,8 @@ favDialog.addEventListener('close', (e) => {
   outputBox.value = favDialog.returnValue === 'default' ? "No return value." : `ReturnValue: ${favDialog.returnValue}.`;
 });
 
+
+// //Add a click event listener to our button
+btn.addEventListener("click", function () {
+  addEventListener(1);
+});
