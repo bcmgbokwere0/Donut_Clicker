@@ -38,3 +38,19 @@ function countUp() {
   donutCount = donutCount + autoClickerCount
   }
   setInterval(countUp, 1000)
+
+
+
+// modal 
+const showButton = document.getElementById('showDialog');
+const favDialog = document.getElementById('favDialog');
+
+// "Show the dialog" button opens the <dialog> modally
+showButton.addEventListener('click', () => {
+  favDialog.showModal();
+});
+
+favDialog.addEventListener('close', (e) => {
+  outputBox.value = favDialog.returnValue === 'default' ? "No return value." : `ReturnValue: ${favDialog.returnValue}.`;
+});
+
