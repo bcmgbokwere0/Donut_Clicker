@@ -4,33 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- second style sheet for dropdown arrow.-->
     <title>Donut Clicker</title>
   </head>
   <body>
-    <div class="container"></div>
+    <div class="container">
     <header class="header">
       <h1>Welcome to Fred the Baker Baking Company! </h1>
+      <div class="navbar">
+        <a href= "https://orteil.dashnet.org/cookieclicker" target="_blank">Inspiration</a>
+        <a href="#news">News</a>
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+      </div>
     </header>
-    <nav class="margin"> <!--create a nav section that has to expand code in js i think -->
-      <ul>
-        <li> Fred the Baker Company</li>
-        <li> Inspiration</li>
-        <li> </li>
-        <li>  <!--<a href="#contact">Contact</a> --></li>
-      </ul>
-    </nav>
-    <h2>Inspired by....Cookie Clicker!</h2>
+    
+    <h2 class="inspiration"><a id="inspired"></a>
+      Inspired by....Cookie Clicker!</h2>
     <aside class="contact">
       <h2>Contact Me</h2>
     </aside>
     <section class="main"> 
       <h2 id="page-main"> Main Section (WIP)</h2>
-      <button id="button" class="the-magic"> Click ME</button>
-      <p>Donuts: <a id="donuts">0</a></p>
+      <button id="button"> DONUTS!!</button>
+      <p>Donuts: <a id="donuts-count">0</a></p>
     </section>
     <section id="auto-clicker">
       <h2> Auto Clicker</h2>
     </section>
     <script src="script.js"></script>
+  </div>
   </body>
 </html>
