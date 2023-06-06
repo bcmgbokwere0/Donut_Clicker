@@ -1,4 +1,4 @@
-const btn=document.getElementById("button");
+const btn=document.getElementById("donutget");
 const display=document.getElementById("donuts-count");
 
 let donutCount = 0
@@ -13,7 +13,7 @@ function getDonutCount() {
 }
 
 btn.addEventListener("click", function()
-{addToDonutCount(1)})
+{addToDonutCount(100)})
 
 // Auto Clicker
 
@@ -28,8 +28,10 @@ function addToAutoClickerCount(amountToAdd) {
   } 
 }
 
-function subtractDonutCount(autoClickerPurchasePrice) {
-  donutCount = donutCount - autoClickerPurchasePrice;
+function subtractDonutCount() {
+  donutCount = donutCount - autoClickerCost;
+  display.innerText = donutCount
+  increaseAutoClickerCost()
 }
 
 const  increasePercentage  = 1.1;
@@ -46,7 +48,20 @@ function countUp() {
   }
   setInterval(countUp, 1000)
 
+  const purchaseButton = document.getElementById('autoclickerpurchase');
 
+const checkDonutPurchase= () => {
+    if(donutCount < autoClickerCost){
+    purchaseButton.disabled = true;
+    }
+    else{
+    purchaseButton.disabled = false;
+    }
+};
+
+btn.addEventListener('click', checkDonutPurchase);
+purchaseButton.addEventListener('click', checkDonutPurchase)
+purchaseButton.addEventListener('click', subtractDonutCount)
 
 //modal 
 const showButton = document.getElementById('showDialog');
@@ -72,11 +87,11 @@ btn.addEventListener("click", function () {
 const showButton2 = document.getElementById('showDialog2');
 const favDialog2 = document.getElementById('favDialog2');
 
-showButton.addEventListener('click', () => {
+showButton2.addEventListener('click', () => {
   favDialog2.showModal();
 });
 
-favDialog2.addEventListener('close', (a) => {
+favDialog2.addEventListener('close', (e) => {
   outputBox.value = favDialog2.returnValue === 'default' ? "No return value." : `ReturnValue: ${favDialog2.returnValue}.`;
 });
 
