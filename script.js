@@ -48,7 +48,7 @@ function countUp() {
 
 
 
-// modal 
+//modal 
 const showButton = document.getElementById('showDialog');
 const favDialog = document.getElementById('favDialog');
 
@@ -63,6 +63,24 @@ favDialog.addEventListener('close', (e) => {
 
 
 // //Add a click event listener to our button
+btn.addEventListener("click", function () {
+  addEventListener(1);
+});
+
+
+//modal 2
+const showButton2 = document.getElementById('showDialog2');
+const favDialog2 = document.getElementById('favDialog2');
+
+showButton.addEventListener('click', () => {
+  favDialog2.showModal();
+});
+
+favDialog2.addEventListener('close', (a) => {
+  outputBox.value = favDialog2.returnValue === 'default' ? "No return value." : `ReturnValue: ${favDialog2.returnValue}.`;
+});
+
+
 btn.addEventListener("click", function () {
   addEventListener(1);
 });

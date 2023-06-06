@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- second style sheet for dropdown arrow.-->
     <title>Donut Clicker</title>
   </head>
   <body>
@@ -14,16 +12,32 @@
     <header class="header">
       <h1 style="text-align: center;">Welcome to Fred the Baker Baking Company! </h1>
       <div class="navbar">
-        <a href="#news">Company</a>
+        <a id="showDialog2">Company <dialog id="favDialog2">
+          <form>
+            <p>
+              Fred the Baker prioritizes his customers every needs. He especially loves making donuts for the people! Its your job to help Fred make as many donuts as he can by clicking on the "donuts" button. Lets see how many YOU can help Fred make!
+            </p>
+            <div>
+              <button value="cancel" formmethod="dialog">Back to the game
+              </button>
+            </div>
+          </form>
+        </dialog>
+        </a>
         <a href= "https://orteil.dashnet.org/cookieclicker" target="_blank">
           Inspiration</a>
             <a id="showDialog">Info on the Developer
               <dialog id="favDialog">
                 <form> 
                   <p> 
-                    Hello I'm Brian Mgbokwere a graduate from Northern Illinois University. I earned my Bachelor of Science in Health Sciences. My studies focused on environmental health, physical and mental health, and how to best deliver care to under-served communities. Looking forward specifically to Java and Javascript within WeCanCodeIT, and also have interest in learning C++, Python, and .NET on my own. </p>
+                    Hello I'm Brian Mgbokwere a graduate from Northern Illinois University. I earned my Bachelor of Science in Health Sciences. So far I have really enjoyed We Can Code It and look forward to all of our future projects. Hoping to utilize JavaScript more so I can continue to get a better grasp on the language! If you want to know more about me, check out my Github and LinkedIn. </p>
+                        <img src=GitHub-Mark.png alt="Github" style="height: 24px; width: auto;"/> bcmgbokwere0
+                      </p>
+                      <p>
+                        <img src="LinkedIn_logo_initials.png" alt="LinkedIn" style="height: 20px; width: auto;"/>
+                        Brian-Mgbokwere
+                    </p> 
                     <img src="happi.gif" alt="happi" style="align-items: center; height: 50px; width: auto;"/>
-                    </label>
                   <div>
                     <button value="cancel" formmethod="dialog">Back to the game</button>
                   </div>
