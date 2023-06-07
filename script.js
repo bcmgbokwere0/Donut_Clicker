@@ -24,7 +24,7 @@ function getDonutCount() {
 }
 
 btn.addEventListener("click", function()
-{addToDonutCount(100)})
+{addToDonutCount(1)})
 
 // Auto Clicker
 
@@ -89,12 +89,6 @@ favDialog.addEventListener('close', (e) => {
 });
 
 
-// //Add a click event listener to our button
-btn.addEventListener("click", function () {
-  addEventListener(1);
-});
-
-
 //modal 2
 
 
@@ -104,9 +98,4 @@ showButton2.addEventListener('click', () => {
 
 favDialog2.addEventListener('close', (e) => {
   outputBox.value = favDialog2.returnValue === 'default' ? "No return value." : `ReturnValue: ${favDialog2.returnValue}.`;
-});
-
-
-btn.addEventListener("click", function () {
-  addEventListener(1);
 });
