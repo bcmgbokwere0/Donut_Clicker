@@ -1,6 +1,7 @@
 const btn=document.getElementById("donutget");
 const display=document.getElementById("donuts-count");
 const purchaseButton = document.getElementById('autoclickerpurchase');
+const displayClicker=document.getElementById('clicker-count');
 const  increasePercentage  = 1.1
 
 let donutCount = 0
@@ -32,19 +33,21 @@ function getAutoClickerCount(){
 }
 
 function addToAutoClickerCount(amountToAdd) {
-  if(donutCount >= autoClickerCost) {
   autoClickerCount = autoClickerCount + amountToAdd
-  } 
 }
 
 function subtractDonutCount() {
   donutCount = donutCount - autoClickerCost;
   display.innerText = donutCount
+
+  addToAutoClickerCount(1)
+  displayClicker.innerText = autoClickerCount
+  
   increaseAutoClickerCost()
+  purchaseButton.innerText = autoClickerCost + ' Donuts Needed'
+  
   checkDonutPurchase()
 }
-
-
 
 function increaseAutoClickerCost(){
     autoClickerCost = autoClickerCost * increasePercentage
@@ -53,7 +56,9 @@ function increaseAutoClickerCost(){
 
 function countUp() {
   donutCount = donutCount + autoClickerCount
-  }
+  display.innerText = donutCount
+  checkDonutPurchase()
+    }
   setInterval(countUp, 1000)
 
 
