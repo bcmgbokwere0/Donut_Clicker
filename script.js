@@ -2,6 +2,7 @@ const btn=document.getElementById("donutget");
 const display=document.getElementById("donuts-count");
 const purchaseButton = document.getElementById('autoclickerpurchase');
 const displayClicker=document.getElementById('clicker-count');
+const resetButton=document.getElementById('resetButton')
 const  increasePercentage  = 1.1
 
 let donutCount = 0
@@ -24,7 +25,7 @@ function getDonutCount() {
 }
 
 btn.addEventListener("click", function()
-{addToDonutCount(1)})
+{addToDonutCount(1000)})
 
 // Auto Clicker
 
@@ -73,8 +74,19 @@ function checkDonutPurchase() {
     }
 };
 
+function reset(){
+  donutCount = 0
+  autoClickerCost = 100 
+  autoClickerCount = 0
+  display.innerText = donutCount
+  displayClicker.innerText = autoClickerCount
+  purchaseButton.innerText = autoClickerCost + ' Donuts Needed'
+}
+
+
 btn.addEventListener('click', checkDonutPurchase);
-purchaseButton.addEventListener('click', subtractDonutCount)
+purchaseButton.addEventListener('click', subtractDonutCount);
+resetButton.addEventListener('click', reset)
 
 //modal 
 
