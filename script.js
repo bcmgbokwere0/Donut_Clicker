@@ -1,7 +1,17 @@
 const btn=document.getElementById("donutget");
 const display=document.getElementById("donuts-count");
+const purchaseButton = document.getElementById('autoclickerpurchase');
+const  increasePercentage  = 1.1
 
 let donutCount = 0
+let autoClickerCount = 0
+let autoClickerCost = 100;
+
+const showButton = document.getElementById('showDialog');
+const favDialog = document.getElementById('favDialog');
+const showButton2 = document.getElementById('showDialog2');
+const favDialog2 = document.getElementById('favDialog2');
+
 
 function addToDonutCount(amountToAdd) {
   donutCount = donutCount + amountToAdd
@@ -17,7 +27,6 @@ btn.addEventListener("click", function()
 
 // Auto Clicker
 
-let autoClickerCount = 0
 function getAutoClickerCount(){
   return autoClickerCount 
 }
@@ -32,11 +41,10 @@ function subtractDonutCount() {
   donutCount = donutCount - autoClickerCost;
   display.innerText = donutCount
   increaseAutoClickerCost()
+  checkDonutPurchase()
 }
 
-const  increasePercentage  = 1.1;
 
-let autoClickerCost = 100;
 
 function increaseAutoClickerCost(){
     autoClickerCost = autoClickerCost * increasePercentage
@@ -48,24 +56,23 @@ function countUp() {
   }
   setInterval(countUp, 1000)
 
-  const purchaseButton = document.getElementById('autoclickerpurchase');
 
-const checkDonutPurchase= () => {
-    if(donutCount < autoClickerCost){
-    purchaseButton.disabled = true;
+function checkDonutPurchase() {
+    if(donutCount < autoClickerCost || (donutCount - autoClickerCost < 0)){
+      purchaseButton.disabled = true;
+      console.log('PURCHASE-DENIED: need', autoClickerCost, "only have:", donutCount)
     }
     else{
-    purchaseButton.disabled = false;
+      purchaseButton.disabled = false;
+      console.log('PURCHASE:', donutCount)
     }
 };
 
 btn.addEventListener('click', checkDonutPurchase);
-purchaseButton.addEventListener('click', checkDonutPurchase)
 purchaseButton.addEventListener('click', subtractDonutCount)
 
 //modal 
-const showButton = document.getElementById('showDialog');
-const favDialog = document.getElementById('favDialog');
+
 
 // "Show the dialog" button opens the <dialog> modally
 showButton.addEventListener('click', () => {
@@ -84,8 +91,7 @@ btn.addEventListener("click", function () {
 
 
 //modal 2
-const showButton2 = document.getElementById('showDialog2');
-const favDialog2 = document.getElementById('favDialog2');
+
 
 showButton2.addEventListener('click', () => {
   favDialog2.showModal();
