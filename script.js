@@ -25,7 +25,7 @@ function getDonutCount() {
 }
 
 btn.addEventListener("click", function()
-{addToDonutCount(1000)})
+{addToDonutCount(1)})
 
 // Auto Clicker
 
@@ -66,11 +66,9 @@ function countUp() {
 function checkDonutPurchase() {
     if(donutCount < autoClickerCost || (donutCount - autoClickerCost < 0)){
       purchaseButton.disabled = true;
-      console.log('PURCHASE-DENIED: need', autoClickerCost, "only have:", donutCount)
     }
     else{
       purchaseButton.disabled = false;
-      console.log('PURCHASE:', donutCount)
     }
 };
 
